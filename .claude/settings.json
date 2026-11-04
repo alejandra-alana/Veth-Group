@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Superhuman_Mail__create_or_update_draft",
+      "mcp__monday_com__create_item",
+      "mcp__monday_com__create_items",
+      "mcp__monday_com__create_update",
+      "mcp__monday_com__create_updates",
+      "mcp__monday_com__change_item_column_values",
+      "mcp__monday_com__update_items"
+    ],
+    "deny": [
+      "mcp__Superhuman_Mail__send_draft",
+      "mcp__Gmail__send_message"
+    ]
+  }
+}
