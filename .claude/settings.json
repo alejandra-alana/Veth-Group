@@ -13,5 +13,12 @@
       "mcp__Superhuman_Mail__send_draft",
       "mcp__Gmail__send_message"
     ]
+  },
+  "autoMode": {
+    "allow": [
+      "$defaults",
+      "Saving or updating Superhuman email drafts (never sending them) is pre-approved by the user.",
+      "Creating Monday.com items and updates, and editing their column values, on the Veth Group boards is pre-approved by the user."
+    ]
   }
 }
