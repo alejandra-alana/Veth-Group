@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Veth Group Org Chart</title>
+<style>
+  :root { --ink:#1d2433; --muted:#5b6475; --line:#b7bfcc; --card:#ffffff; --bg:#f4f6f9;
+          --lead:#1f4e8c; --ops:#2f7d6d; --content:#8a4fb5; --ext:#9aa3b2; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); font-family: "Inter", -apple-system, "Segoe UI", Roboto, sans-serif; color:var(--ink); }
+  .wrap { width:1180px; padding:36px 40px 28px; }
+  h1 { margin:0; font-size:26px; letter-spacing:-.2px; }
+  .sub { color:var(--muted); font-size:14px; margin:4px 0 26px; }
+  .row { display:flex; justify-content:center; gap:28px; position:relative; }
+  .card { background:var(--card); border-radius:10px; padding:12px 16px; width:230px;
+          box-shadow:0 1px 2px rgba(0,0,0,.06), 0 2px 8px rgba(0,0,0,.05); border-top:4px solid var(--lead); }
+  .card .n { font-weight:700; font-size:15px; }
+  .card .r { font-size:12.5px; color:var(--muted); margin-top:3px; line-height:1.35; }
+  .ops { border-top-color:var(--ops); }
+  .content { border-top-color:var(--content); }
+  .ext { border-top-color:var(--ext); border-style:dashed; border-width:1px 1px 1px 1px; border-top:4px dashed var(--ext); background:#fafbfc; }
+  .tag { display:inline-block; font-size:10.5px; font-weight:600; text-transform:uppercase; letter-spacing:.5px;
+         padding:2px 7px; border-radius:20px; margin-top:7px; background:#eef2f8; color:var(--lead); }
+  .ops .tag { background:#e7f3f0; color:var(--ops); }
+  .content .tag { background:#f2eaf8; color:var(--content); }
+  .ext .tag { background:#eef0f3; color:#6b7484; }
+  .v { width:2px; height:22px; background:var(--line); margin:0 auto; }
+  .branches { display:grid; grid-template-columns: 250px 520px 250px; gap:30px; justify-content:center; position:relative; padding-top:22px; }
+  .branches::before { content:""; position:absolute; top:0; left:125px; right:125px; height:2px; background:var(--line); }
+  .col { display:flex; flex-direction:column; align-items:center; position:relative; }
+  .col::before { content:""; position:absolute; top:-22px; width:2px; height:22px; background:var(--line); }
+  .group { border:1.5px solid #e1d3ee; background:#fbf8fd; border-radius:12px; padding:10px; display:flex; flex-direction:column; gap:10px; align-items:center; }
+  .group .gl { font-size:11px; font-weight:700; color:var(--content); text-transform:uppercase; letter-spacing:.6px; }
+  .kids { display:flex; gap:20px; position:relative; padding-top:22px; margin-top:22px; }
+  .kids::after { content:""; position:absolute; top:-22px; left:50%; width:2px; height:22px; background:var(--line); }
+  .kids::before { content:""; position:absolute; top:0; left:115px; right:115px; height:2px; background:var(--line); }
+  .kids > .card { position:relative; }
+  .kids > .card::before { content:""; position:absolute; top:-26px; left:50%; width:2px; height:22px; background:var(--line); }
+  .legend { display:flex; gap:22px; margin-top:28px; font-size:12px; color:var(--muted); justify-content:center; }
+  .legend span::before { content:""; display:inline-block; width:12px; height:4px; margin-right:6px; vertical-align:middle; }
+  .l1::before { background:var(--lead); } .l2::before { background:var(--ops); } .l3::before { background:var(--content); } .l4::before { background:var(--ext); }
+  .note { margin-top:10px; font-size:12px; color:var(--muted); text-align:center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Veth Group: Org Chart</h1>
+  <div class="sub">As of November 2026 · 8 people · prepared by Alejandra Alaña</div>
+
+  <div class="row">
+    <div class="card"><div class="n">Miles Veth</div>
+      <div class="r">Founder &amp; CEO. Sales and closing, client strategy, campaign copy, content ideation</div>
+      <span class="tag">Leadership</span></div>
+  </div>
+  <div class="v"></div>
+
+  <div class="branches">
+    <div class="col">
+      <div class="card"><div class="n">Savannah</div>
+        <div class="r">Office Admin. Admin support, gifts and physical mail for campaigns</div>
+        <span class="tag">Admin</span></div>
+    </div>
+
+    <div class="col">
+      <div class="card ops"><div class="n">Alejandra Alaña</div>
+        <div class="r">Executive Assistant to Miles, also doing Operations, Project and Account Management</div>
+        <span class="tag">Service / Operations</span></div>
+      <div class="kids">
+        <div class="card ops"><div class="n">Camilo Ospina</div>
+          <div class="r">Account Manager (new). Client calls, lead follow-up, client emails</div>
+          <span class="tag">Service</span></div>
+        <div class="card ops"><div class="n">Jesús Esquivia</div>
+          <div class="r">Paid Ads Specialist (LinkedIn, Meta, Google), also supports cold email / outbound</div>
+          <span class="tag">Service</span></div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="group">
+        <div class="gl">Profile Buddy (Content)</div>
+        <div class="card content"><div class="n">Chris</div>
+          <div class="r">Content lead. Approves posts, manages Shipping and Podcast boards</div>
+          <span class="tag">Content</span></div>
+        <div class="card content"><div class="n">Justin</div>
+          <div class="r">Content production (posts, graphics, video)</div>
+          <span class="tag">Content</span></div>
+        <div class="card content"><div class="n">Sai</div>
+          <div class="r">Content production (posts, graphics, video)</div>
+          <span class="tag">Content</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top:26px">
+    <div class="card ext"><div class="n">Nathan, Complete.net</div>
+      <div class="r">External partner. Buys sending domains and inboxes for Woodpecker campaigns</div>
+      <span class="tag">External vendor</span></div>
+  </div>
+
+  <div class="legend"><span class="l1">Leadership / Admin</span><span class="l2">Service / Operations</span><span class="l3">Content (Profile Buddy)</span><span class="l4">External</span></div>
+  <div class="note">Camilo and Jesús report to Alejandra day to day. Alejandra and Camilo don't have a written split of roles yet.</div>
+</div>
+</body>
+</html>
