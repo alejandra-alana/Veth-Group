@@ -5,7 +5,7 @@ Monday item: New Campaign Launches → "Varisource Cold Email Campaign" (1335971
 ## Woodpecker (key: `WOODPECKER_KEY_VARISOURCE`)
 - Campaign **2503270** — "Varisource | Finance & Procurement | Wave 1 (250-2000 emp)" — status **DRAFT (not started)**
 - 60 Victor Hou mailboxes attached; 10 new prospects/mailbox/day; Mon–Fri 08:00–17:00 prospect time zone (default America/New_York)
-- Step 1: "A different kind of Savings Program" → Step 2 bump in same thread after 3 working days (copy from Monday, signature + P.S. on bump)
+- Step 1: "A different kind of Savings Program" (full signature + address + P.S.) → Step 2 bump in same thread after 3 working days (full signature + address + P.S.)
 - Open tracking off, auto-pause same domain on reply/bounce, catch-all mode BALANCED
 - Payload: `woodpecker_campaign_payload.json`
 
