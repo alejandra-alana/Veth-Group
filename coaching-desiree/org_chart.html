@@ -13,32 +13,41 @@
   h1 { margin:0; font-size:26px; letter-spacing:-.2px; }
   .sub { color:var(--muted); font-size:14px; margin:4px 0 26px; }
   .center { display:flex; justify-content:center; }
-  .card { background:var(--card); border-radius:10px; padding:11px 14px; width:250px;
+  .card { background:var(--card); border-radius:10px; padding:11px 14px; width:240px;
           box-shadow:0 1px 2px rgba(0,0,0,.06), 0 2px 8px rgba(0,0,0,.05); border-top:4px solid var(--lead); }
   .card .n { font-weight:700; font-size:15px; }
   .card .r { font-size:12.5px; color:var(--muted); margin-top:3px; line-height:1.35; }
-  .v { width:2px; height:20px; background:var(--line); margin:0 auto; }
-  .ops-bar { width:1160px; margin:0 auto; background:#eef6f4; border:1.5px solid #bfdcd5; border-radius:12px;
-             padding:10px 16px; display:flex; align-items:center; gap:16px; }
-  .ops-bar .n { font-weight:700; font-size:15px; }
-  .ops-bar .r { font-size:12.5px; color:var(--muted); line-height:1.35; }
-  .ops-bar .tag { margin-left:auto; }
   .tag { display:inline-block; font-size:10.5px; font-weight:600; text-transform:uppercase; letter-spacing:.5px;
-         padding:2px 8px; border-radius:20px; background:#e7f3f0; color:var(--ops); white-space:nowrap; }
-  .cols { display:grid; grid-template-columns:repeat(4, 280px); gap:13px; justify-content:center; position:relative; padding-top:22px; }
-  .cols::before { content:""; position:absolute; top:0; left:140px; right:140px; height:2px; background:var(--line); }
-  .col { position:relative; border-radius:12px; padding:12px 14px 14px; display:flex; flex-direction:column; gap:10px; align-items:center; }
+         padding:2px 8px; border-radius:20px; margin-top:7px; background:#eef2f8; color:var(--lead); }
+  .v { width:2px; height:22px; background:var(--line); margin:0 auto; }
+
+  /* manager tier */
+  .tier { width:1140px; margin:0 auto; display:grid; grid-template-columns:560px 270px 270px; gap:20px; justify-content:center; position:relative; padding-top:22px; }
+  .tier::before { content:""; position:absolute; top:0; left:280px; right:135px; height:2px; background:var(--line); }
+  .branch { display:flex; flex-direction:column; align-items:center; position:relative; }
+  .branch::before { content:""; position:absolute; top:-22px; left:50%; width:2px; height:22px; background:var(--line); }
+  .mgr { width:270px; }
+  .mgr.ops { border-top-color:var(--ops); } .mgr.ops .tag { background:#e7f3f0; color:var(--ops); }
+  .mgr.content { border-top-color:var(--content); } .mgr.content .tag { background:#f2eaf8; color:var(--content); }
+  .mgr.admin { border-top-color:var(--admin); } .mgr.admin .tag { background:#eef0f3; color:var(--admin); }
+
+  /* verticals under a manager */
+  .verts { display:flex; gap:20px; position:relative; padding-top:22px; margin-top:22px; }
+  .verts::after { content:""; position:absolute; top:-22px; left:50%; width:2px; height:22px; background:var(--line); }
+  .verts.two::before { content:""; position:absolute; top:0; left:135px; right:135px; height:2px; background:var(--line); }
+  .col { position:relative; width:270px; border-radius:12px; padding:12px 14px 14px; display:flex; flex-direction:column; gap:10px; align-items:center; }
   .col::before { content:""; position:absolute; top:-22px; left:50%; width:2px; height:22px; background:var(--line); }
   .col .gl { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.6px; text-align:center; }
   .col .gd { font-size:11.5px; color:var(--muted); text-align:center; margin-top:-6px; }
   .sales { background:#fdf5ee; border:1.5px solid #f0d6bf; } .sales .gl { color:var(--sales); } .sales .card { border-top-color:var(--sales); }
   .out { background:#eef4fb; border:1.5px solid #c9dcf0; } .out .gl { color:var(--out); } .out .card { border-top-color:var(--out); }
-  .content { background:#f8f3fc; border:1.5px solid #e1d3ee; } .content .gl { color:var(--content); } .content .card { border-top-color:var(--content); }
-  .admin { background:#f1f3f6; border:1.5px solid #d5dbe3; } .admin .gl { color:var(--admin); } .admin .card { border-top-color:var(--admin); }
-  .open { border-style:dashed !important; border-width:1.5px !important; border-color:var(--sales) !important; border-top-width:4px !important; background:#fffaf5; }
+  .content-v { background:#f8f3fc; border:1.5px solid #e1d3ee; } .content-v .gl { color:var(--content); } .content-v .card { border-top-color:var(--content); }
+  .admin-v { background:#f1f3f6; border:1.5px solid #d5dbe3; } .admin-v .gl { color:var(--admin); }
+  .admin-v .empty { font-size:12px; color:var(--muted); text-align:center; padding:6px 0 2px; }
+  .open { border:1.5px dashed var(--sales) !important; border-top:4px dashed var(--sales) !important; background:#fffaf5; }
   .open .n { color:var(--sales); }
   .ext { border:1px dashed var(--ext) !important; border-top:4px dashed var(--ext) !important; background:#fafbfc; }
-  .note { margin-top:18px; font-size:12px; color:var(--muted); text-align:center; }
+  .note { margin-top:20px; font-size:12px; color:var(--muted); text-align:center; }
 </style>
 </head>
 <body>
@@ -48,57 +57,72 @@
 
   <div class="center">
     <div class="card"><div class="n">Miles Veth</div>
-      <div class="r">Founder &amp; CEO. Strategy, sales and closing, consulting, campaign copy, content ideation</div></div>
+      <div class="r">Founder &amp; CEO. Strategy, sales and closing, consulting, campaign copy, content ideation</div>
+      <span class="tag">Leadership</span></div>
   </div>
   <div class="v"></div>
 
-  <div class="ops-bar">
-    <div><div class="n">Alejandra Alaña</div>
-      <div class="r">Executive Assistant to Miles · Operations and project management across all four verticals, alongside Miles</div></div>
-    <span class="tag">Spans all verticals</span>
+  <div class="tier">
+    <!-- Alejandra: Sales & Service + Outbound -->
+    <div class="branch">
+      <div class="card mgr ops"><div class="n">Alejandra Alaña</div>
+        <div class="r">Executive Assistant to Miles · Operations and project management for Sales &amp; Service and Outbound</div>
+        <span class="tag">Manager</span></div>
+      <div class="verts two">
+        <div class="col sales">
+          <div class="gl">Sales &amp; Service</div>
+          <div class="gd">Client calls, account management, leads</div>
+          <div class="card"><div class="n">Camilo Ospina</div>
+            <div class="r">Account Manager. Calls with smaller clients, video shoots, client emails</div></div>
+          <div class="card"><div class="n">Alejandra de la Peña</div>
+            <div class="r">Account Manager, Client Calls (new). Day-to-day calls with clients alongside Miles</div></div>
+          <div class="card open"><div class="n">Open role (new hire)</div>
+            <div class="r">Account Manager, Sales. Calls with leads; trained by Miles</div></div>
+        </div>
+        <div class="col out">
+          <div class="gl">Outbound</div>
+          <div class="gd">Cold email, LinkedIn and paid ads</div>
+          <div class="card"><div class="n">Jesús Esquivia</div>
+            <div class="r">Paid Ads &amp; Outbound Specialist. LinkedIn, Meta and Google ads, cold email campaigns</div></div>
+          <div class="card ext"><div class="n">Nathan, Complete.net</div>
+            <div class="r">External partner. Buys sending domains and inboxes for cold email campaigns</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chris: Content -->
+    <div class="branch">
+      <div class="card mgr content"><div class="n">Chris Laight</div>
+        <div class="r">Content lead (Profile Buddy). Approves posts, manages Shipping and Podcast boards</div>
+        <span class="tag">Manager</span></div>
+      <div class="verts">
+        <div class="col content-v">
+          <div class="gl">Content (Profile Buddy)</div>
+          <div class="gd">LinkedIn posts, video, podcasts</div>
+          <div class="card"><div class="n">Justine</div>
+            <div class="r">Content production (graphics). Sends posts to clients for approval and schedules them</div></div>
+          <div class="card"><div class="n">Xy</div>
+            <div class="r">Content production (graphics and video)</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Savannah: Back office -->
+    <div class="branch">
+      <div class="card mgr admin"><div class="n">Savannah Veth</div>
+        <div class="r">Office Admin. Billing, proposals and e-sign documents for new clients, gifts and physical mail for campaigns</div>
+        <span class="tag">Manager</span></div>
+      <div class="verts">
+        <div class="col admin-v">
+          <div class="gl">Back Office Administration</div>
+          <div class="gd">Billing, contracts, office</div>
+          <div class="empty">Savannah runs this vertical</div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="cols">
-    <div class="col sales">
-      <div class="gl">Sales &amp; Service</div>
-      <div class="gd">Client calls, account management, leads</div>
-      <div class="card"><div class="n">Camilo Ospina</div>
-        <div class="r">Account Manager. Calls with smaller clients, video shoots, client emails</div></div>
-      <div class="card"><div class="n">Alejandra de la Peña</div>
-        <div class="r">Account Manager, Client Calls (new). Day-to-day calls with clients alongside Miles</div></div>
-      <div class="card open"><div class="n">Open role (new hire)</div>
-        <div class="r">Account Manager, Sales. Calls with leads; trained by Miles</div></div>
-    </div>
-
-    <div class="col out">
-      <div class="gl">Outbound</div>
-      <div class="gd">Cold email, LinkedIn and paid ads</div>
-      <div class="card"><div class="n">Jesús Esquivia</div>
-        <div class="r">Paid Ads &amp; Outbound Specialist. LinkedIn, Meta and Google ads, cold email campaigns</div></div>
-      <div class="card ext"><div class="n">Nathan, Complete.net</div>
-        <div class="r">External partner. Buys sending domains and inboxes for cold email campaigns</div></div>
-    </div>
-
-    <div class="col content">
-      <div class="gl">Content (Profile Buddy)</div>
-      <div class="gd">LinkedIn posts, video, podcasts</div>
-      <div class="card"><div class="n">Chris Laight</div>
-        <div class="r">Content lead. Approves posts, manages Shipping and Podcast boards</div></div>
-      <div class="card"><div class="n">Justine</div>
-        <div class="r">Content production (graphics). Sends posts to clients for approval and schedules them</div></div>
-      <div class="card"><div class="n">Xy</div>
-        <div class="r">Content production (graphics and video)</div></div>
-    </div>
-
-    <div class="col admin">
-      <div class="gl">Back Office Administration</div>
-      <div class="gd">Billing, contracts, office</div>
-      <div class="card"><div class="n">Savannah Veth</div>
-        <div class="r">Office Admin. Billing, proposals and e-sign documents for new clients, gifts and physical mail for campaigns</div></div>
-    </div>
-  </div>
-
-  <div class="note">Consulting is delivered by Miles. The open role is a placeholder until the new Account Manager officially starts. Dashed cards are open roles or external partners.</div>
+  <div class="note">Alejandra, Chris and Savannah report to Miles. Consulting is delivered by Miles. Dashed cards are open roles or external partners.</div>
 </div>
 </body>
 </html>
