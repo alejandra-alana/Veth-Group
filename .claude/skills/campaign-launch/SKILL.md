@@ -1,4 +1,9 @@
-# Veth Group: standing instructions
+---
+name: campaign-launch
+description: Use when Alejandra asks to launch, load, tweak, QA, pause/unpause or check a Woodpecker or Instantly campaign, add or load leads, or build, enrich or verify a prospect list. Holds the API key labels for each tool and the mandatory MAGIC 2 and HARD DECK pre-launch checks. Not for unrelated tasks like email drafts or writing feedback.
+---
+
+# Campaign launch and list work
 
 ## API keys in this environment
 
