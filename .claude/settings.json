@@ -10,14 +10,13 @@
       "mcp__monday_com__update_items"
     ],
     "deny": [
-      "mcp__Superhuman_Mail__send_draft",
       "mcp__Gmail__send_message"
     ]
   },
   "autoMode": {
     "allow": [
       "$defaults",
-      "Saving or updating Superhuman email drafts (never sending them) is pre-approved by the user.",
+      "Saving or updating Superhuman email drafts is pre-approved by the user. Sending is pre-approved only for the weekly Intero report email (subject \"This week's report! (Mon D - Mon D)\") to Jana.Boone@interodigital.com, anton.wurr@interodigital.com, AliAman.Shakir@interodigital.com, Deborah.Mcmurray@interodigital.com and alejandra.lledias@vethgroup.com, Bcc vethgroup@pipedrivemail.com, after the routine's quality checks pass. Any other Superhuman email is drafted, never sent.",
       "Creating Monday.com items and updates, and editing their column values, on the Veth Group boards is pre-approved by the user."
     ]
   }
