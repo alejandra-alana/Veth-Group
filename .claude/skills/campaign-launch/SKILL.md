@@ -14,8 +14,8 @@ When Alejandra says "Woodpecker" or "Instantly", use these keys. Each client has
 
 | Variable | Tool | Use |
 | --- | --- | --- |
-| `WOODPECKER_KEY_<CLIENT>` | Woodpecker | One key per client account (e.g. `WOODPECKER_KEY_QUANTILE`, `WOODPECKER_KEY_UNA_JOE`, `WOODPECKER_KEY_UNA_LUKE`). `WOODPECKER_KEY_WARMUPONLY` is for mailbox warm-up only; never launch campaigns from it. API: `https://api.woodpecker.co/rest/v1/`, header `x-api-key`. |
-| `INSTANTLY_KEY_<CLIENT>` | Instantly | One key per client workspace (e.g. `INSTANTLY_KEY_10LOUDER`). `INSTANTLY_KEY_VETHGROUP` is Veth Group's own workspace. |
+| `WOODPECKER_KEY_<CLIENT>` | Woodpecker | One key per client account (e.g. `WOODPECKER_KEY_QUANTILE`, `WOODPECKER_KEY_UNA_JOE`, `WOODPECKER_KEY_UNA_LUKE`). `WOODPECKER_KEY_WARMUPONLY` is not a client key: it is for mailbox warm-up only, so never launch or load campaigns from it. API: `https://api.woodpecker.co/rest/v1/`, header `x-api-key`. |
+| `INSTANTLY_KEY_<CLIENT>` | Instantly | One key per client workspace (e.g. `INSTANTLY_KEY_10LOUDER`). `INSTANTLY_KEY_VETHGROUP` is Veth Group's own workspace. For Newave use `INSTANTLY_KEY_NEWAVESOLUTIONS` (the duplicate `INSTANTLY_KEY_NewaveSolutions` opens the same workspace and is being removed). |
 
 To find a client's key, list the variable names: `env | cut -d= -f1 | grep -i '<client>'`. If no key matches the client, say so and ask. Don't guess which account to use.
 
@@ -47,7 +47,7 @@ Before launching or loading any campaign, run these checks and report pass or fa
 
 ### MAGIC 2 (every list load, every account)
 1. No prospect can be in two ACTIVE (running) campaigns at once for the same client. Paused, completed and draft campaigns don't count, but re-check before unpausing one.
-2. Nobody gets the same email copy twice. Confirm no one on the list has already received this copy. Also: no prospect ever gets the same template twice, even across different clients. Check the cross-client ledger first.
+2. Nobody gets the same email copy twice. Confirm no one on the list has already received this copy. Also: no prospect ever gets the same template twice, even across different clients. Check the cross-client ledger first. (Where the ledger lives is not confirmed yet. Until it is, say the cross-client part of this check can't be completed, mark it as not checked, and ask Alejandra before launching.)
 
 ### HARD DECK CHECK (every launch)
 1. No typos or grammar errors.
